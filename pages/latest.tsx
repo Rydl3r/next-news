@@ -12,7 +12,7 @@ const latest = () => {
     const fetchData = () => {
         axios.get(`https://api.newscatcherapi.com/v2/search?q=Programming&lang=en&page=${page}&page_size=20`, {
             headers: {
-                "x-api-key": "7tWWmBC8whwJyMDpp9v68FnDaUYgqeET6M8k1-J_ALA"//the token is a variable which holds the token
+                "x-api-key": process.env.APIKEY//the token is a variable which holds the token
             }
         }).then((data) => {
             console.log(data.data.articles)
