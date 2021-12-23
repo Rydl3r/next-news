@@ -26,7 +26,7 @@ const latest = () => {
 
     return (
         <div className="text-center py-5">
-            <h1 className="font-bold text-4xl pb-5">Latest news on programming</h1>
+            <h1 className="font-bold text-4xl pb-5">Latest news on programming world</h1>
             <div className="flex flex-wrap justify-around">
                 {!posts ? "No news were found! We're sorry..." : posts.map((post) => {
                     return (
