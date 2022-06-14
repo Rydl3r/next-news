@@ -1,23 +1,23 @@
 import { useState } from "react";
-import Link from "next/link"
-import { useRouter } from 'next/router'
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { Transition } from "@headlessui/react";
-import { AiOutlineSearch } from "react-icons/ai"
+import { AiOutlineSearch } from "react-icons/ai";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("");
 
-  const router = useRouter()
+  const router = useRouter();
 
   function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     router.push({
-      pathname: '/search/[query]',
+      pathname: "/search/[query]",
       query: { query: query },
-    })
-    setQuery("")
+    });
+    setQuery("");
   }
 
   return (
@@ -36,41 +36,44 @@ function Nav() {
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   <Link href="/">
-                    <a
-                      className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
+                    <a className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
                       Home
                     </a>
                   </Link>
 
-
                   <Link href="/latest">
-                    <a
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
+                    <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                       Latest
                     </a>
                   </Link>
 
-
                   <Link href="/popular">
-                    <a
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
+                    <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                       Popular
                     </a>
                   </Link>
 
-                  <form className="relative mx-auto text-gray-600" onSubmit={(e) => {
-                    handleSubmit(e)
-                  }}>
-                    <input className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
-                      type="search" name="search" placeholder="Search" value={query} onChange={(e) => setQuery(e.target.value)} />
-                    <button type="submit" className="absolute right-0 top-0 mt-3 mr-4">
+                  <form
+                    className="relative mx-auto text-gray-600"
+                    onSubmit={(e) => {
+                      handleSubmit(e);
+                    }}
+                  >
+                    <input
+                      className="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
+                      type="search"
+                      name="search"
+                      placeholder="Search"
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                    />
+                    <button
+                      type="submit"
+                      className="absolute right-0 top-0 mt-3 mr-4"
+                    >
                       <AiOutlineSearch />
                     </button>
                   </form>
-
                 </div>
               </div>
             </div>
@@ -134,22 +137,16 @@ function Nav() {
             <div className="md:hidden" id="mobile-menu">
               <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <Link href="/">
-                  <a
-                    className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
-                  >
+                  <a className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">
                     Home
                   </a>
                 </Link>
 
-
                 <Link href="/latest">
-                  <a
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                  >
+                  <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
                     Latest
                   </a>
                 </Link>
-
 
                 <Link href="/popular">
                   <a
@@ -160,17 +157,27 @@ function Nav() {
                   </a>
                 </Link>
 
-                <form className="relative mx-auto text-gray-600" onSubmit={(e) => {
-                  handleSubmit(e)
-                }}>
-                  <input className="border-2 border-gray-300 bg-white h-10 px-5 pr-20 rounded-lg text-sm focus:outline-none"
-                    type="search" name="search" placeholder="Search" value={query} onChange={(e) => setQuery(e.target.value)} >
-                  </input>
-                  <button type="submit" className="absolute left-0 top-0 mt-3 ml-56">
+                <form
+                  className="relative mx-auto text-gray-600"
+                  onSubmit={(e) => {
+                    handleSubmit(e);
+                  }}
+                >
+                  <input
+                    className="border-2 border-gray-300 bg-white h-10 px-5 pr-20 rounded-lg text-sm focus:outline-none"
+                    type="search"
+                    name="search"
+                    placeholder="Search"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                  ></input>
+                  <button
+                    type="submit"
+                    className="absolute left-0 top-0 mt-3 ml-56"
+                  >
                     <AiOutlineSearch />
                   </button>
                 </form>
-
               </div>
             </div>
           )}
